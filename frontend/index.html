@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eaf5fc">
   <title>Diagnostic Lab Test and Report Management System</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
@@ -22,9 +21,7 @@
     <div id="connectionStatus" class="connection-status pending" role="status">
       Checking Java backend and Oracle connection…
     </div>
-    <p class="setup-note">
-      <strong>Setup note:</strong> This application is not connected to Oracle until the Java backend and database are configured and tested.
-    </p>
+    <p class="setup-note"><strong>Setup note:</strong> Configure and test the Java backend and Oracle database before using the application.</p>
 
     <section class="card" aria-labelledby="form-heading">
       <div class="section-heading">
@@ -43,21 +40,12 @@
                    autocomplete="off" required>
           </div>
           <div class="field">
-            <label for="patientName">Patient Name</label>
-            <input id="patientName" name="patientName" type="text" maxlength="100" required>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" maxlength="100" required>
           </div>
           <div class="field">
             <label for="age">Age</label>
             <input id="age" name="age" type="number" min="0" max="120" step="1" required>
-          </div>
-          <div class="field">
-            <label for="gender">Gender</label>
-            <select id="gender" name="gender" required>
-              <option value="" disabled selected>Select gender</option>
-              <option value="Female">Female</option>
-              <option value="Male">Male</option>
-              <option value="Other">Other</option>
-            </select>
           </div>
           <div class="field field-wide">
             <label for="testName">Test Name</label>
@@ -91,15 +79,14 @@
           <thead>
             <tr>
               <th scope="col">Patient ID</th>
-              <th scope="col">Patient Name</th>
+              <th scope="col">Name</th>
               <th scope="col">Age</th>
-              <th scope="col">Gender</th>
               <th scope="col">Test Name</th>
               <th scope="col">Test Result</th>
             </tr>
           </thead>
           <tbody id="recordsBody">
-            <tr><td class="table-message" colspan="6">Records load when the backend and database are ready.</td></tr>
+            <tr><td class="table-message" colspan="5">Records load when the backend and database are ready.</td></tr>
           </tbody>
         </table>
       </div>
