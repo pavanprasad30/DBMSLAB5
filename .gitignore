@@ -1,0 +1,9 @@
+# Java build output
+backend/target/
+*.class
+
+# Local secrets and editor files
+.env
+.env.*
+.idea/
+.vscode/

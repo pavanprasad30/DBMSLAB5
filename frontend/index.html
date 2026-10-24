@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf5fc">
+  <title>Diagnostic Lab Test and Report Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <div class="medical-mark" aria-hidden="true">+</div>
+      <div>
+        <p class="eyebrow">COLLEGE DBMS PROJECT</p>
+        <h1>Diagnostic Lab Test and Report Management System</h1>
+        <p class="subtitle">Manage patient details and diagnostic test reports.</p>
+      </div>
+    </header>
+
+    <div id="connectionStatus" class="connection-status pending" role="status">
+      Checking Java backend and Oracle connection…
+    </div>
+    <p class="setup-note">
+      <strong>Setup note:</strong> This application is not connected to Oracle until the Java backend and database are configured and tested.
+    </p>
+
+    <section class="card" aria-labelledby="form-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">RECORD DETAILS</p>
+          <h2 id="form-heading">Patient and test information</h2>
+        </div>
+      </div>
+
+      <form id="recordForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="patientId">Patient ID</label>
+            <input id="patientId" name="patientId" type="text" maxlength="20"
+                   pattern="[A-Za-z0-9_-]{1,20}" title="Use 1–20 letters, numbers, hyphens, or underscores."
+                   autocomplete="off" required>
+          </div>
+          <div class="field">
+            <label for="patientName">Patient Name</label>
+            <input id="patientName" name="patientName" type="text" maxlength="100" required>
+          </div>
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="0" max="120" step="1" required>
+          </div>
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="" disabled selected>Select gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field field-wide">
+            <label for="testName">Test Name</label>
+            <input id="testName" name="testName" type="text" maxlength="100" required>
+          </div>
+          <div class="field field-wide">
+            <label for="testResult">Test Result</label>
+            <textarea id="testResult" name="testResult" rows="3" maxlength="2000" required></textarea>
+          </div>
+        </div>
+
+        <div class="actions" aria-label="Record actions">
+          <button id="additionButton" class="button button-primary" type="button">Addition</button>
+          <button id="updationButton" class="button button-secondary" type="button">Updation</button>
+          <button id="deletionButton" class="button button-danger" type="button">Deletion</button>
+        </div>
+      </form>
+      <p id="message" class="message" role="status" aria-live="polite" hidden></p>
+    </section>
+
+    <section class="card records-card" aria-labelledby="records-heading">
+      <div class="section-heading records-heading">
+        <div>
+          <p class="section-kicker">DATABASE RECORDS</p>
+          <h2 id="records-heading">Patient and test records</h2>
+        </div>
+        <span id="recordCount" class="record-count">0 records</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Patient ID</th>
+              <th scope="col">Patient Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Test Name</th>
+              <th scope="col">Test Result</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody">
+            <tr><td class="table-message" colspan="6">Records load when the backend and database are ready.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="page-footer">HTML · CSS · Java · JDBC Thin · Oracle Database</footer>
+  </main>
+</body>
+</html>
